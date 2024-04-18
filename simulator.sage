@@ -42,7 +42,7 @@ def exp_min_sq_proj(dim,proj_dim,Nb_targets=1,eps=1e-10):
     
 def f_primal(dim,beta,sq_norm_short_vector,vol,Nb_targets=1,eps=1e-10):
     """
-    primal attack equation
+    Derives the primal attack equation: the expected norm of the shortest projection of a shortest vector versus the GSA estimates for BKZ-reduced bases.
     """
     beta = RBF(beta)
     vol = RBF(vol)
@@ -74,6 +74,7 @@ def gen_hypercubic():
         print("Dimension",n,"| Optimal beta with 1 vector:",dichotomy_primal(0.2*n,0.8*n,n,1,1,Nb_targets=1,eps=1e-10),"| Optimal beta with "+str(n)+" vectors:",dichotomy_primal(0.2*n,0.8*n,n,1,1,Nb_targets=n,eps=1e-10))
 
 def main():
+    print("This code helps simulate the impact of the number of short vectors in a lattice, following the primal attack heuristic.")
     s = input("Select mode of operation: hypercubic_auto (a) or manual (m)"+"\n")
     if(s == 'a'):
         gen_hypercubic()
